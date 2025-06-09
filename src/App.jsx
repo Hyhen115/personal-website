@@ -1,6 +1,6 @@
 import React from "react";
-import { FloatingDock } from "./components/floating_dock";
-import TopNav from "./components/top_nav";
+import { FloatingDock } from "./components/ui/floating_dock";
+import TopNav from "./components/ui/top_nav";
 import Hero from "./components/sections/Hero";
 import {
   IconBrandGithub,
