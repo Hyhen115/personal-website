@@ -26,14 +26,14 @@ function App() {
       icon: (
         <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "https://github.com/yourusername",
+      href: "https://github.com/Hyhen115",
     },
     {
       title: "LinkedIn",
       icon: (
         <IconBrandLinkedinFilled className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "https://www.linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/henry-wong-5169482a0",
     },
     {
       title: "Resume",
