@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { IconArrowUpRight } from '@tabler/icons-react';
 
 const ProjectCard = ({ project }) => {
   const { image, title, description, link } = project;
   const [isHovered, setIsHovered] = useState(false);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
 
   return (
     <motion.div 
@@ -35,7 +37,7 @@ const ProjectCard = ({ project }) => {
         {/* Learn More Button - Only visible on hover */}
         {isHovered && (
           <motion.div 
-            className="absolute inset-0 flex items-center justify-center"
+            className="absolute inset-x-0 bottom-4 flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -43,11 +45,24 @@ const ProjectCard = ({ project }) => {
           >
             <a 
               href={link}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md shadow-md transition-colors"
+              className={`bg-transparent ${isButtonHovered ? 'backdrop-blur-xl' : 'backdrop-blur-sm'} text-gray-800 dark:text-gray-100 text-sm py-1.5 px-3 rounded-md shadow-md transition-all duration-300 flex items-center gap-1.5`}
               target="_blank" 
               rel="noopener noreferrer"
+              onMouseEnter={() => setIsButtonHovered(true)}
+              onMouseLeave={() => setIsButtonHovered(false)}
             >
-              Learn More
+              Learn more
+              <motion.div
+                className="relative"
+                animate={{
+                  x: isButtonHovered ? 2 : 0,
+                  y: isButtonHovered ? -2 : 0,
+                  scale: isButtonHovered ? 1.2 : 1
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <IconArrowUpRight className="h-3.5 w-3.5" />
+              </motion.div>
             </a>
           </motion.div>
         )}
