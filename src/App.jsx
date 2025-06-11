@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import { FloatingDock } from "./components/ui/floating_dock";
 import TopNav from "./components/ui/top_nav";
 import Hero from "./components/sections/Hero";
 import Projects from "./components/sections/Projects";
 import Experience from "./components/sections/Experience";
+import LoadingEffect from "./components/ui/loading_effect";
 import {
   IconBrandGithub,
   IconBrandLinkedinFilled,
@@ -13,6 +15,14 @@ import {
 } from "@tabler/icons-react";
 
 function App() {
+  // State to manage loading status
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Handle loading complete
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
   // Items for the bottom floating dock
   const navItems = [
     {
@@ -48,8 +58,8 @@ function App() {
   // Items for the top navigation
   const menuItems = [
     { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
+    { label: "Experience", href: "#experience" },
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
   ];
@@ -57,6 +67,10 @@ function App() {
   return (
     // Make sure we reset any default margins/paddings
     <main className="w-full min-h-screen bg-white dark:bg-black overflow-x-hidden m-0 p-0">
+      <AnimatePresence>
+        {isLoading && <LoadingEffect onLoadingComplete={handleLoadingComplete} />}
+      </AnimatePresence>
+      
       {/* Top Navigation */}
       <TopNav menuItems={menuItems} />
       
@@ -77,14 +91,9 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="2-full py-16">
+      <section id="experience" className="w-full py-16">
         <Experience />
       </section>
-
-      {/* Future sections will go here */}
-      {/* <section id="about" className="w-full min-h-screen py-16">
-        <About />
-      </section> */}
 
       {/* Position the floating dock at the bottom of the screen */}
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
