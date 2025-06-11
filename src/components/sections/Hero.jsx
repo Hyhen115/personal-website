@@ -10,7 +10,7 @@ function Hero() {
           <img 
             src="src/assets/profolio_icon.jpeg"
             alt="Henry Wong"
-            className="w-full h-full rounded-full border-4 border-gray-100 dark:border-gray-800 shadow-md object-cover"
+            className="w-full h-full rounded-full border-2 border-gray-100 dark:border-gray-800 shadow-md object-cover"
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = "https://via.placeholder.com/150?text=HW";
