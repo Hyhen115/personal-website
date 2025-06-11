@@ -2,7 +2,8 @@ import React from "react";
 import { FloatingDock } from "./components/ui/floating_dock";
 import TopNav from "./components/ui/top_nav";
 import Hero from "./components/sections/Hero";
-import Projects from "./components/sections/Projects"; // Import the Projects component
+import Projects from "./components/sections/Projects";
+import Experience from "./components/sections/Experience";
 import {
   IconBrandGithub,
   IconBrandLinkedinFilled,
@@ -73,6 +74,11 @@ function App() {
       {/* Projects Section */}
       <section id="projects" className="w-full py-16">
         <Projects />
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="2-full py-16">
+        <Experience />
       </section>
 
       {/* Future sections will go here */}

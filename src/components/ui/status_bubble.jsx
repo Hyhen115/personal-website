@@ -3,37 +3,42 @@ import React from "react";
 const StatusBubble = ({ status, size = "default" }) => {
   // Define styles for different statuses
   const statusStyles = {
-    AI: {
+    "AI": {
       border: "border-blue-500",
       color: "text-blue-600",
       background: "bg-blue-50 dark:bg-blue-900/20"
     },
-    Blockchain: {
+    "Web": {
       border: "border-green-500",
       color: "text-green-600",
       background: "bg-green-50 dark:bg-green-900/20"
     },
-    Cloud: {
-      border: "border-amber-500",
-      color: "text-amber-600",
-      background: "bg-amber-50 dark:bg-amber-900/20"
-    },
-    Web: {
+    "Blockchain": {
       border: "border-purple-500",
       color: "text-purple-600",
       background: "bg-purple-50 dark:bg-purple-900/20"
     },
-    App: {
+    "Cloud": {
+      border: "border-amber-500",
+      color: "text-amber-600",
+      background: "bg-amber-50 dark:bg-amber-900/20"
+    },
+    "App": {
       border: "border-pink-500",
       color: "text-pink-600",
       background: "bg-pink-50 dark:bg-pink-900/20"
     },
-    Algorithm: {
-        border: "border-yellow-500",
-        color: "text-yellow-600",
-        background: "bg-yellow-50 dark:bg-yellow-900/20"
+    "Algorithm": {
+      border: "border-indigo-500",
+      color: "text-indigo-600", 
+      background: "bg-indigo-50 dark:bg-indigo-900/20"
+    },
+    // Add more statuses as needed
+    default: {
+      border: "border-gray-500",
+      color: "text-gray-600",
+      background: "bg-gray-50 dark:bg-gray-800/20"
     }
-    // add more status as needed
   };
 
   // Size variants
@@ -44,7 +49,7 @@ const StatusBubble = ({ status, size = "default" }) => {
   };
 
   // Get the style for the status or use default if not found
-  const style = statusStyles[status.toLowerCase()] || statusStyles.default;
+  const style = statusStyles[status] || statusStyles.default;
   const sizeStyle = sizeStyles[size] || sizeStyles.default;
 
   return (
