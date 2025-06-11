@@ -10,7 +10,7 @@ const Projects = () => {
       description: "This is testing description for my project cards.",
       image: "https://static.dezeen.com/uploads/2025/05/sq-google-g-logo-update_dezeen_2364_col_0-852x852.jpg",
       link: "#",
-      githubLink: "https://github.com/Hyhen115"
+      githubLink: "https://github.com/Hyhen115",
     },
     {
       id: 2,

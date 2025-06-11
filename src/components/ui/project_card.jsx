@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { IconArrowUpRight, IconBrandGithub } from "@tabler/icons-react";
+import StatusBubble from "./status_bubble";
 
 const ProjectCard = ({ project }) => {
-  const { image, title, description, link, githubLink } = project;
+  const { image, title, description, link, githubLink, status } = project;
   const [isHovered, setIsHovered] = useState(false);
   const [isLearnMoreHovered, setIsLearnMoreHovered] = useState(false);
   const [isGithubHovered, setIsGithubHovered] = useState(false);
@@ -17,13 +18,20 @@ const ProjectCard = ({ project }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Project Image */}
-      <div className="w-full h-48 overflow-hidden">
+      <div className="w-full h-48 overflow-hidden relative">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-300 ease-in-out"
           style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }}
         />
+
+        {/* Status bubble positioned on top-right of the image */}
+        {status && (
+          <div className="absolute top-3 right-3">
+            <StatusBubble status={status} size="small" />
+          </div>
+        )}
       </div>
 
       {/* Project Info */}
