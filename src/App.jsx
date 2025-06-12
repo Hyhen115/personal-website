@@ -5,6 +5,7 @@ import TopNav from "./components/ui/top_nav";
 import Hero from "./components/sections/Hero";
 import Projects from "./components/sections/Projects";
 import Experience from "./components/sections/Experience";
+import Skills from "./components/sections/Skills";
 import Contact from "./components/sections/Contact";
 import LoadingEffect from "./components/ui/loading_effect";
 import SharedBackground from "./components/ui/background";
@@ -98,6 +99,11 @@ function App() {
       {/* Projects Section */}
       <section id="projects" className="w-full py-16 relative z-10">
         <Projects />
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="w-full py-16 relative z-10">
+        <Skills />
       </section>
 
       {/* Contact Section */}
