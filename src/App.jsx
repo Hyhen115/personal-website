@@ -5,6 +5,7 @@ import TopNav from "./components/ui/top_nav";
 import Hero from "./components/sections/Hero";
 import Projects from "./components/sections/Projects";
 import Experience from "./components/sections/Experience";
+import Contact from "./components/sections/Contact";
 import LoadingEffect from "./components/ui/loading_effect";
 import {
   IconBrandGithub,
@@ -92,6 +93,11 @@ function App() {
       {/* Projects Section */}
       <section id="projects" className="w-full py-16">
         <Projects />
+      </section>
+
+      {/* Content Section */}
+      <section id="contact" className="w-full py-16">
+        <Contact />
       </section>
 
       {/* Position the floating dock at the bottom of the screen */}
