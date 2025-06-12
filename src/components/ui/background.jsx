@@ -236,7 +236,7 @@ const SharedBackground = () => {
         waveAmpY={20}     // More amplitude than before (15), less than original (25)
         backgroundColor="transparent"
         lineColor={rippleColor}
-        gridSpacing={22}  // Slightly denser grid than before (25), sparser than original (20)
+        gridSpacing={20}  // Slightly denser grid than before (25), sparser than original (20)
       />
       
       {/* Minimal background elements with blue tint */}
