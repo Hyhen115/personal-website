@@ -58,9 +58,8 @@ function App() {
   // Items for the top navigation
   const menuItems = [
     { label: "Home", href: "#home" },
-    { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
-    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -85,15 +84,16 @@ function App() {
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section id="experience" className="w-full py-16">
+        <Experience />
+      </section>
+
       {/* Projects Section */}
       <section id="projects" className="w-full py-16">
         <Projects />
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="w-full py-16">
-        <Experience />
-      </section>
 
       {/* Position the floating dock at the bottom of the screen */}
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">

@@ -5,6 +5,35 @@ import { IconMenu2, IconX } from '@tabler/icons-react';
 const TopNav = ({ logo, menuItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Smooth scroll handler for navigation links
+  const handleSmoothScroll = (e, targetId) => {
+    // Only process internal links (those starting with #)
+    if (targetId.startsWith('#')) {
+      e.preventDefault();
+      
+      // Close mobile menu if open
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+      
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        // Get the navigation bar height for offset calculation
+        const navHeight = document.querySelector('nav').offsetHeight;
+        
+        // Calculate the target position with offset for the fixed header
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        
+        // Scroll smoothly to the target
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-80 dark:bg-black dark:bg-opacity-80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,6 +56,7 @@ const TopNav = ({ logo, menuItems }) => {
                 <a
                   key={index}
                   href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
                   className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   {item.label}
@@ -68,6 +98,7 @@ const TopNav = ({ logo, menuItems }) => {
                 <a
                   key={index}
                   href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 >
                   {item.label}
