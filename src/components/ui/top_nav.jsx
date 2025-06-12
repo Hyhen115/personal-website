@@ -1,9 +1,34 @@
-import React, { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion, useScroll } from 'framer-motion';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 
 const TopNav = ({ logo, menuItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  
+  // Track scroll direction
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Determine if we're scrolling up or down
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past initial threshold
+        setIsVisible(false);
+        // Close mobile menu when nav hides
+        if (isMenuOpen) setIsMenuOpen(false);
+      } else {
+        // Scrolling up or at the top
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY, isMenuOpen]);
 
   // Smooth scroll handler for navigation links
   const handleSmoothScroll = (e, targetId) => {
@@ -35,7 +60,12 @@ const TopNav = ({ logo, menuItems }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-80 dark:bg-black dark:bg-opacity-80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+    <motion.nav 
+      className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-80 dark:bg-black dark:bg-opacity-80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800"
+      initial={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo or Name */}
@@ -108,7 +138,7 @@ const TopNav = ({ logo, menuItems }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 
