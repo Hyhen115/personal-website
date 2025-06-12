@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { FloatingDock } from "./components/ui/floating_dock";
 import TopNav from "./components/ui/top_nav";
@@ -7,6 +7,8 @@ import Projects from "./components/sections/Projects";
 import Experience from "./components/sections/Experience";
 import Contact from "./components/sections/Contact";
 import LoadingEffect from "./components/ui/loading_effect";
+import SharedBackground from "./components/ui/background";
+
 import {
   IconBrandGithub,
   IconBrandLinkedinFilled,
@@ -71,13 +73,16 @@ function App() {
         {isLoading && <LoadingEffect onLoadingComplete={handleLoadingComplete} />}
       </AnimatePresence>
       
+      {/* Backgrounf component - positioned fixed so it spans all sections */}
+      <SharedBackground />
+      
       {/* Top Navigation */}
       <TopNav menuItems={menuItems} />
       
       {/* Hero Section - Using flex with centered content */}
       <section
         id="home"
-        className="w-full min-h-screen flex flex-col items-center justify-center p-4 pt-16"
+        className="w-full min-h-screen flex flex-col items-center justify-center p-4 pt-16 relative z-10"
       >
         {/* The Hero component should take the appropriate width */}
         <div className="w-full max-w-3xl mx-auto">
@@ -86,17 +91,17 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="w-full py-16">
+      <section id="experience" className="w-full py-16 relative z-10">
         <Experience />
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="w-full py-16">
+      <section id="projects" className="w-full py-16 relative z-10">
         <Projects />
       </section>
 
-      {/* Content Section */}
-      <section id="contact" className="w-full py-16">
+      {/* Contact Section */}
+      <section id="contact" className="w-full py-16 relative z-10">
         <Contact />
       </section>
 
