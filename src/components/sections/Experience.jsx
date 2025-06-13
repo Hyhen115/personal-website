@@ -1,57 +1,113 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import ExperienceTimeline from '../ui/experience_timeline';
 
 const Experience = () => {
-  // Sample experience data
-  const experiences = [
+  // Work experience data
+  const workExperiences = [
     {
       id: 1,
       title: "Part-Time AI Developer",
       company: "TRM Limited",
+      companyUrl: "https://www.trm.com.hk/",
       period: "2025 Jun - Present",
-      description: "Developed AI workflows and agents for Generating Insurance CM Statements from Audio Transcripts using Dify. And Implememted API for the AI Workflows using C# .NET 8.0.",
-      type: "work", // or "education"
+      description: "Developed AI workflows and agents for Generating Insurance CM Statements from Audio Transcripts. And Implememted API for the AI Workflows and sending emails to corresponding clients and insutance staff",
+      type: "work",
+      skills: ["C# .NET", "Dify"]
     },
     {
       id: 2,
       title: "Full Stack Developer Intern",
       company: "iGears Technology Limited",
+      companyUrl: "https://www.igears.com.hk/",
       period: "2024 - 2025",
-      description: "Developed a Multi-platform NFC event App and A clipboard App using React Native, Flutter, electron, flask, Node.js. and MongoDB.",
+      description: "Developed a Multi-platform NFC event App and a clipboard App.",
       type: "work",
+      skills: ["React Native", "Flutter", "Electron", "Flask", "Node.js", "MongoDB"]
     },
     {
       id: 3,
       title: "INNOX Enterpunership Program",
       company: "INNOX & HKSTP",
+      companyUrl: "https://mp.weixin.qq.com/s?__biz=MzI3OTM0MjI3NA==&mid=2247511848&idx=1&sn=f22055c4be3b0dd094140f131b829eff&chksm=eb4bd285dc3c5b93eba0e0c5e06b274760b1f639cdb8c3f7255a8f8dd34765ad970a0c6027fb&token=484125780&lang=zh_CN#rd",
       period: "2024 Summer",
       description: "Participated in a Summer program to develop an STEM Education Toy-CodeBo.",
       type: "work",
+      skills: ["Business Analysis", "Product Development", "IoT"]
     },
+  ];
+
+  // Education experience data
+  const educationExperiences = [
     {
       id: 4,
       title: "Bachelor of Science in Computer Science",
       company: "HKUST",
+      companyUrl: "https://hkust.edu.hk/zh-hant",
       period: "2020 - Present",
       description: "Focused on software development, algorithms, and data structures.",
       type: "education",
+      skills: ["Data Structures", "Algorithms", "Software Engineering"]
     },
     {
       id: 5,
       title: "Associate Degree in Data Science",
       company: "HKCC",
+      companyUrl: "https://www.hkcc-polyu.edu.hk/en/home/index.html",
       period: "2016 - 2020",
       description: "Graduated with honors.",
       type: "education",
+      skills: ["Statistics", "Data Analysis", "Python"]
     },
-    // Add more experiences as needed
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">My Experience</h2>
-      <ExperienceTimeline experiences={experiences} />
-    </div>
+    <section id="experience" className="w-full py-16 relative z-10">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+            Experience
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+          {/* Work Experience Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="mb-8">
+              <h3 className="text-2xl font-semibold text-center mb-8 text-gray-700 dark:text-gray-200">
+                Work History
+              </h3>
+            </div>
+            <ExperienceTimeline experiences={workExperiences} />
+          </motion.div>
+
+          {/* Education Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <div className="mb-8">
+              <h3 className="text-2xl font-semibold text-center mb-8 text-gray-700 dark:text-gray-200">
+                Education
+              </h3>
+            </div>
+            <ExperienceTimeline experiences={educationExperiences} />
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 };
 
