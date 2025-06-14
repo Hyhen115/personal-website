@@ -68,18 +68,12 @@ const TopNav = ({ logo, menuItems }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo or Name with link to #home */}
+          {/* Logo or Name */}
           <div className="flex-shrink-0">
             {logo ? (
-              <a href="#home" onClick={(e) => handleSmoothScroll(e, '#home')}>
-                <img className="h-8 w-auto" src={logo} alt="Logo" />
-              </a>
+              <img className="h-8 w-auto" src={logo} alt="Logo" />
             ) : (
-              <a 
-                href="#home" 
-                onClick={(e) => handleSmoothScroll(e, '#home')} 
-                className="text-xl font-bold text-gray-900 dark:text-white"
-              >
+              <a href="#home" onClick={(e) => handleSmoothScroll(e, '#home')} className="text-xl font-bold text-gray-900 dark:text-white">
                 Henry
               </a>
             )}
@@ -99,11 +93,10 @@ const TopNav = ({ logo, menuItems }) => {
                 </a>
               ))}
               
-              {/* Resume Button */}
+              {/* Resume Button - Fixed to download from assets/resume.pdf */}
               <a
-                href="/resume.pdf" 
-                target="_blank"
-                rel="noopener noreferrer" 
+                href="/src/assets/resume.pdf" 
+                download="Henry_Wong_Resume.pdf"
                 className="ml-2 px-4 py-1.5 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 border border-gray-400 dark:border-gray-600 hover:border-gray-600 dark:hover:border-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 Resume
@@ -151,11 +144,10 @@ const TopNav = ({ logo, menuItems }) => {
                 </a>
               ))}
               
-              {/* Resume Button in Mobile Menu */}
+              {/* Resume Button in Mobile Menu - Fixed to download from assets/resume.pdf */}
               <a
-                href="/resume.pdf" 
-                target="_blank"
-                rel="noopener noreferrer" 
+                href="/src/assets/resume.pdf" 
+                download="Henry_Wong_Resume.pdf"
                 className="block mx-3 mt-2 px-3 py-2 text-center rounded-md text-base font-medium text-gray-700 dark:text-gray-200 border border-gray-400 dark:border-gray-600 hover:border-gray-600 dark:hover:border-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 Resume
