@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion, useScroll } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 
 const TopNav = ({ logo, menuItems }) => {
@@ -68,20 +68,26 @@ const TopNav = ({ logo, menuItems }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo or Name */}
+          {/* Logo or Name with link to #home */}
           <div className="flex-shrink-0">
             {logo ? (
-              <img className="h-8 w-auto" src={logo} alt="Logo" />
+              <a href="#home" onClick={(e) => handleSmoothScroll(e, '#home')}>
+                <img className="h-8 w-auto" src={logo} alt="Logo" />
+              </a>
             ) : (
-              <a href="#" className="text-xl font-bold text-gray-900 dark:text-white">
+              <a 
+                href="#home" 
+                onClick={(e) => handleSmoothScroll(e, '#home')} 
+                className="text-xl font-bold text-gray-900 dark:text-white"
+              >
                 Henry
               </a>
             )}
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden md:flex items-center">
+            <div className="flex items-center space-x-4">
               {menuItems.map((item, index) => (
                 <a
                   key={index}
@@ -92,6 +98,16 @@ const TopNav = ({ logo, menuItems }) => {
                   {item.label}
                 </a>
               ))}
+              
+              {/* Resume Button */}
+              <a
+                href="/resume.pdf" 
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="ml-2 px-4 py-1.5 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 border border-gray-400 dark:border-gray-600 hover:border-gray-600 dark:hover:border-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+              >
+                Resume
+              </a>
             </div>
           </div>
 
@@ -134,6 +150,16 @@ const TopNav = ({ logo, menuItems }) => {
                   {item.label}
                 </a>
               ))}
+              
+              {/* Resume Button in Mobile Menu */}
+              <a
+                href="/resume.pdf" 
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="block mx-3 mt-2 px-3 py-2 text-center rounded-md text-base font-medium text-gray-700 dark:text-gray-200 border border-gray-400 dark:border-gray-600 hover:border-gray-600 dark:hover:border-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+              >
+                Resume
+              </a>
             </div>
           </motion.div>
         )}
