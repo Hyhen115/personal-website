@@ -7,6 +7,7 @@ import Projects from "./components/sections/Projects";
 import Experience from "./components/sections/Experience";
 import Skills from "./components/sections/Skills";
 import Contact from "./components/sections/Contact";
+import Footer from "./components/ui/Footer"; // Import the Footer component
 import LoadingEffect from "./components/ui/loading_effect";
 import SharedBackground from "./components/ui/background";
 import CustomCursor from "./components/ui/custom_cursor";
@@ -16,7 +17,6 @@ import {
   IconBrandLinkedinFilled,
   IconFile,
   IconMail,
-  IconMoon,
 } from "@tabler/icons-react";
 
 function App() {
@@ -70,7 +70,6 @@ function App() {
   ];
 
   return (
-    // Make sure we reset any default margins/paddings
     <main className="w-full min-h-screen bg-white dark:bg-black overflow-x-hidden m-0 p-0">
       <CustomCursor />
 
@@ -78,16 +77,13 @@ function App() {
         {isLoading && <LoadingEffect onLoadingComplete={handleLoadingComplete} />}
       </AnimatePresence>
 
-      {/* Backgrounf component - positioned fixed so it spans all sections */}
       <SharedBackground />
-
-      {/* Top Navigation */}
       <TopNav menuItems={menuItems} />
 
       {/* Hero Section - Using flex with centered content */}
       <section
         id="home"
-        className="w-full min-h-screen flex flex-col items-center justify-center p-4 pt-16 relative z-10"
+        className="snap-section w-full min-h-screen flex flex-col items-center justify-center p-4 relative z-10"
       >
         {/* The Hero component should take the appropriate width */}
         <div className="w-full max-w-3xl mx-auto">
@@ -96,23 +92,24 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="w-full py-16 relative z-10">
+      <section id="experience" className="snap-section w-full min-h-screen py-16 flex items-center relative z-10">
         <Experience />
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="w-full py-16 relative z-10">
+      <section id="projects" className="snap-section w-full min-h-screen py-16 flex items-center relative z-10">
         <Projects />
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="w-full py-16 relative z-10">
+      <section id="skills" className="snap-section w-full min-h-screen py-16 flex items-center relative z-10">
         <Skills />
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="w-full py-16 relative z-10">
+      {/* Contact Section with Footer */}
+      <section id="contact" className="snap-section w-full min-h-screen py-16 flex flex-col justify-center relative z-10">
         <Contact />
+        <Footer /> {/* Add the Footer at the bottom of the Contact section */}
       </section>
 
       {/* Position the floating dock at the bottom of the screen */}
