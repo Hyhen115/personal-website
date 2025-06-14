@@ -33,6 +33,11 @@ const StatusBubble = ({ status, size = "default" }) => {
       color: "text-indigo-600", 
       background: "bg-indigo-50 dark:bg-indigo-900/20"
     },
+    "System": {
+      border: "border-indigo-500",
+      color: "text-indigo-600", 
+      background: "bg-indigo-50 dark:bg-yellow-900/20"
+    },
     // Add more statuses as needed
     default: {
       border: "border-gray-500",

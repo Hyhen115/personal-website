@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { IconArrowUpRight, IconBrandGithub } from "@tabler/icons-react";
+import { IconArrowUpRight, IconExternalLink } from "@tabler/icons-react";
 import StatusBubble from "./status_bubble";
 
 const ProjectCard = ({ project }) => {
-  const { image, title, description, link, githubLink, status } = project;
+  const { image, title, description, link, demoLink, status } = project;
   const [isHovered, setIsHovered] = useState(false);
   const [isLearnMoreHovered, setIsLearnMoreHovered] = useState(false);
-  const [isGithubHovered, setIsGithubHovered] = useState(false);
+  const [isDemoHovered, setIsDemoHovered] = useState(false);
 
   return (
     <motion.div
@@ -87,30 +87,30 @@ const ProjectCard = ({ project }) => {
               </motion.div>
             </a>
 
-            {/* GitHub Button */}
-            {githubLink && (
+            {/* Live Demo Button (replacing GitHub button) */}
+            {demoLink && (
               <a
-                href={githubLink}
+                href={demoLink}
                 className={`bg-transparent ${
-                  isGithubHovered
+                  isDemoHovered
                     ? "backdrop-blur-xl shadow-md"
                     : "backdrop-blur-sm shadow-none"
                 } text-gray-800 dark:text-gray-100 text-sm py-1.5 px-3 rounded-md transition-all duration-300 flex items-center gap-1.5`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onMouseEnter={() => setIsGithubHovered(true)}
-                onMouseLeave={() => setIsGithubHovered(false)}
+                onMouseEnter={() => setIsDemoHovered(true)}
+                onMouseLeave={() => setIsDemoHovered(false)}
               >
-                GitHub
+                Live Demo
                 <motion.div
                   className="relative"
                   animate={{
-                    y: isGithubHovered ? -2 : 0,
-                    scale: isGithubHovered ? 1.2 : 1,
+                    y: isDemoHovered ? -2 : 0,
+                    scale: isDemoHovered ? 1.2 : 1,
                   }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <IconBrandGithub className="h-3.5 w-3.5" />
+                  <IconExternalLink className="h-3.5 w-3.5" />
                 </motion.div>
               </a>
             )}
