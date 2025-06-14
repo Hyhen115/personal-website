@@ -20,7 +20,7 @@ const Experience = () => {
       title: "Full Stack Developer Intern",
       company: "iGears Technology Limited",
       companyUrl: "https://www.igears.com.hk/",
-      period: "2024 - 2025",
+      period: "2024 Dec - 2025 Feb",
       description: "Developed a Multi-platform NFC event App and a clipboard App.",
       type: "work",
       skills: ["React Native", "Flutter", "Electron", "Flask", "Node.js", "MongoDB"]
@@ -41,10 +41,10 @@ const Experience = () => {
   const educationExperiences = [
     {
       id: 4,
-      title: "Bachelor of Science in Computer Science",
+      title: "Bachelor of Engineering in Computer Science",
       company: "HKUST",
       companyUrl: "https://hkust.edu.hk/zh-hant",
-      period: "2020 - Present",
+      period: "2023 - Present",
       description: "Focused on software development, algorithms, and data structures.",
       type: "education",
       skills: ["Data Structures", "Algorithms", "Software Engineering"]
@@ -54,7 +54,7 @@ const Experience = () => {
       title: "Associate Degree in Data Science",
       company: "HKCC",
       companyUrl: "https://www.hkcc-polyu.edu.hk/en/home/index.html",
-      period: "2016 - 2020",
+      period: "2021 - 2023",
       description: "Graduated with honors.",
       type: "education",
       skills: ["Statistics", "Data Analysis", "Python"]
