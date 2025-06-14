@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { FloatingDock } from "./components/ui/floating_dock";
 import TopNav from "./components/ui/top_nav";
@@ -9,6 +9,7 @@ import Skills from "./components/sections/Skills";
 import Contact from "./components/sections/Contact";
 import LoadingEffect from "./components/ui/loading_effect";
 import SharedBackground from "./components/ui/background";
+import CustomCursor from "./components/ui/custom_cursor";
 
 import {
   IconBrandGithub,
@@ -21,6 +22,15 @@ import {
 function App() {
   // State to manage loading status
   const [isLoading, setIsLoading] = useState(true);
+
+  // Handle initial loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Handle loading complete
   const handleLoadingComplete = () => {
@@ -71,16 +81,18 @@ function App() {
   return (
     // Make sure we reset any default margins/paddings
     <main className="w-full min-h-screen bg-white dark:bg-black overflow-x-hidden m-0 p-0">
+      <CustomCursor />
+
       <AnimatePresence>
         {isLoading && <LoadingEffect onLoadingComplete={handleLoadingComplete} />}
       </AnimatePresence>
-      
+
       {/* Backgrounf component - positioned fixed so it spans all sections */}
       <SharedBackground />
-      
+
       {/* Top Navigation */}
       <TopNav menuItems={menuItems} />
-      
+
       {/* Hero Section - Using flex with centered content */}
       <section
         id="home"
