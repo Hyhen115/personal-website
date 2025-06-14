@@ -7,7 +7,7 @@ import Projects from "./components/sections/Projects";
 import Experience from "./components/sections/Experience";
 import Skills from "./components/sections/Skills";
 import Contact from "./components/sections/Contact";
-import Footer from "./components/ui/Footer"; // Import the Footer component
+import Footer from "./components/ui/footer"; // Import the Footer component
 import LoadingEffect from "./components/ui/loading_effect";
 import SharedBackground from "./components/ui/background";
 import CustomCursor from "./components/ui/custom_cursor";
