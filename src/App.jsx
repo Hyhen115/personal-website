@@ -23,15 +23,6 @@ function App() {
   // State to manage loading status
   const [isLoading, setIsLoading] = useState(true);
 
-  // Handle initial loading
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   // Handle loading complete
   const handleLoadingComplete = () => {
     setIsLoading(false);
