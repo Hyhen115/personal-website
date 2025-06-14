@@ -20,7 +20,7 @@ const Experience = () => {
       title: "Full Stack Developer Intern",
       company: "iGears Technology Limited",
       companyUrl: "https://www.igears.com.hk/",
-      period: "2024 Dec - 2025 Feb",
+      period: "2024 Dec - 2025 Jan",
       description: "Developed a Multi-platform NFC event App and a clipboard App.",
       type: "work",
       skills: ["React Native", "Flutter", "Electron", "Flask", "Node.js", "MongoDB"]
@@ -30,7 +30,7 @@ const Experience = () => {
       title: "INNOX Enterpunership Program",
       company: "INNOX & HKSTP",
       companyUrl: "https://mp.weixin.qq.com/s?__biz=MzI3OTM0MjI3NA==&mid=2247511848&idx=1&sn=f22055c4be3b0dd094140f131b829eff&chksm=eb4bd285dc3c5b93eba0e0c5e06b274760b1f639cdb8c3f7255a8f8dd34765ad970a0c6027fb&token=484125780&lang=zh_CN#rd",
-      period: "2024 Summer",
+      period: "2024 May - 2024 July",
       description: "Participated in a Summer program to develop an STEM Education Toy-CodeBo.",
       type: "work",
       skills: ["Business Analysis", "Product Development", "IoT"]
@@ -45,7 +45,7 @@ const Experience = () => {
       company: "HKUST",
       companyUrl: "https://hkust.edu.hk/zh-hant",
       period: "2023 - Present",
-      description: "Focused on software development, algorithms, and data structures.",
+      description: "CGA 3.2/4.3",
       type: "education",
       skills: ["Data Structures", "Algorithms", "Software Engineering"]
     },
@@ -55,7 +55,7 @@ const Experience = () => {
       company: "HKCC",
       companyUrl: "https://www.hkcc-polyu.edu.hk/en/home/index.html",
       period: "2021 - 2023",
-      description: "Graduated with honors.",
+      description: "CGA 3.92/4.3",
       type: "education",
       skills: ["Statistics", "Data Analysis", "Python"]
     },
