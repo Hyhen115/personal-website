@@ -35,7 +35,7 @@ function App() {
       icon: (
         <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#contact",
+      href: "mailto:hyhen115@gmail.com", // Change to your email address
     },
     {
       title: "GitHub",
@@ -56,7 +56,8 @@ function App() {
       icon: (
         <IconFile className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "https://yourwebsite.com/resume.pdf",
+      href: "/src/assets/resume.pdf",
+      download: "Henry_Wong_Resume.pdf", // Add this download attribute
     },
   ];
 
