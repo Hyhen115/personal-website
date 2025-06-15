@@ -6,7 +6,7 @@ const LoadingEffect = ({ onLoadingComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Phase 1: Complete the animation and show the signature
+    // Phase 1: Complete the animation and show the signature - faster now (2.5s instead of 4s)
     const animationTimer = setTimeout(() => {
       // Phase 2: Start fade-out animation after a brief pause
       setIsVisible(false);
@@ -16,11 +16,22 @@ const LoadingEffect = ({ onLoadingComplete }) => {
         if (onLoadingComplete) {
           onLoadingComplete();
         }
-      }, 800); // Allow time for fade-out animation (matches exit animation duration)
-    }, 4000); // Total time before fade-out begins
+      }, 500); // Faster fade-out (500ms instead of 800ms)
+    }, 2500); // Total time before fade-out begins (reduced from 4000ms)
     
     return () => clearTimeout(animationTimer);
   }, [onLoadingComplete]);
+
+  // Handle click to skip loading
+  const handleSkip = () => {
+    setIsVisible(false);
+    // Call onLoadingComplete after a short fade-out
+    setTimeout(() => {
+      if (onLoadingComplete) {
+        onLoadingComplete();
+      }
+    }, 300);
+  };
 
   // Three consolidated strokes - one continuous path per phase
   const signatureStrokes = [
@@ -34,19 +45,19 @@ const LoadingEffect = ({ onLoadingComplete }) => {
     "M 253.770,150.863 C 256.215,149.667 256.268,149.803 258.766,148.742 C 269.303,145.369 269.153,144.976 279.645,141.480 C 287.569,137.976 287.744,138.435 295.648,134.875 C 303.639,131.998 303.575,131.833 311.656,129.195 C 323.834,124.437 323.960,124.894 336.289,120.668 C 342.396,119.260 342.276,118.856 348.539,118.035 C 355.302,115.206 352.957,117.154 357.410,116.457 C 357.437,120.024 358.824,117.296 355.582,122.215 C 351.874,125.022 352.732,125.581 348.000,127.570 C 342.705,129.870 345.770,129.037 343.375,130.246 C 347.361,129.846 344.379,130.810 351.348,129.449 C 356.231,127.256 354.344,129.151 357.340,128.855 C 358.024,133.311 358.843,131.024 356.570,136.984 C 353.798,141.132 354.795,141.471 350.883,145.176 C 348.109,147.053 349.198,147.513 347.371,149.746 C 346.981,156.564 345.631,156.094 345.926,163.258 C 345.601,166.494 345.443,166.318 344.297,169.254"
   ];
 
-  // Animation variants for the three main strokes - smoother timing
+  // Animation variants for the three main strokes - faster timing
   const strokeVariants = {
     hidden: {
       pathLength: 0,
       opacity: 0
     },
-    // Phase 1 animation (left vertical)
+    // Phase 1 animation (left vertical) - faster
     visible1: {
       pathLength: 1,
       opacity: 1,
       transition: {
         pathLength: { 
-          duration: 0.8,
+          duration: 0.5, // Faster (was 0.8)
           ease: "easeOut"
         },
         opacity: { 
@@ -54,65 +65,65 @@ const LoadingEffect = ({ onLoadingComplete }) => {
         }
       }
     },
-    // Phase 2 animation (right vertical)
+    // Phase 2 animation (right vertical) - faster
     visible2: {
       pathLength: 1,
       opacity: 1,
       transition: {
         pathLength: { 
-          duration: 0.8,
-          delay: 0.9, // Reduced delay for smoother transition
+          duration: 0.5, // Faster (was 0.8)
+          delay: 0.6, // Faster delay (was 0.9)
           ease: "easeOut"
         },
         opacity: { 
           duration: 0.05,
-          delay: 0.9
+          delay: 0.6 // Faster delay (was 0.9)
         }
       }
     },
-    // Phase 3 animation (horizontal + W)
+    // Phase 3 animation (horizontal + W) - faster
     visible3: {
       pathLength: 1,
       opacity: 1,
       transition: {
         pathLength: { 
-          duration: 1.2, // Longer duration for the more complex stroke
-          delay: 1.8, // Reduced delay for smoother transition
+          duration: 0.8, // Faster (was 1.2)
+          delay: 1.2, // Faster delay (was 1.8)
           ease: "easeOut"
         },
         opacity: { 
           duration: 0.05, 
-          delay: 1.8
+          delay: 1.2 // Faster delay (was 1.8)
         }
       }
     }
   };
 
-  // Animation variants for the text appearing after signature
+  // Animation variants for the text appearing after signature - faster
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: { 
-        delay: 3.2, // Appear soon after signature completion
-        duration: 0.6,
+        delay: 2.1, // Appear sooner (was 3.2)
+        duration: 0.4, // Faster (was 0.6)
         ease: "easeOut"
       } 
     }
   };
 
-  // Container animation for fade-in and fade-out
+  // Container animation for fade-in and fade-out - faster exit
   const containerVariants = {
     initial: { opacity: 0 },
     animate: { 
       opacity: 1,
-      transition: { duration: 0.5 }
+      transition: { duration: 0.3 } // Faster (was 0.5)
     },
     exit: { 
       opacity: 0,
       transition: { 
-        duration: 0.8,
+        duration: 0.5, // Faster exit (was 0.8)
         ease: "easeInOut" 
       }
     }
@@ -122,15 +133,16 @@ const LoadingEffect = ({ onLoadingComplete }) => {
     <AnimatePresence>
       {isVisible && (
         <motion.div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-black"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-black cursor-pointer"
           variants={containerVariants}
           initial="initial"
           animate="animate"
           exit="exit"
+          onClick={handleSkip} // Add click handler to skip loading
         >
           <div className="flex flex-col items-center">
-            {/* Signature SVG - smaller size */}
-            <div className="w-48 h-32 mb-5">
+            {/* Signature SVG - larger size */}
+            <div className="w-64 h-48 mb-5">
               <svg 
                 ref={svgRef}
                 width="100%" 
@@ -167,7 +179,7 @@ const LoadingEffect = ({ onLoadingComplete }) => {
                 {/* Phase 3: Horizontal connector and W */}
                 <motion.path
                   d={signatureStrokes[2]}
-                  stroke="currentColor"
+                  stroke="CurrentColor"
                   strokeWidth="3"
                   strokeLinecap="round"
                   fill="none"
@@ -193,6 +205,16 @@ const LoadingEffect = ({ onLoadingComplete }) => {
                 Software Developer
               </p>
             </motion.div>
+
+            {/* Skip text tooltip */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.3 }}
+              className="absolute bottom-8 text-xs text-gray-500 dark:text-gray-400"
+            >
+              Click anywhere to skip
+            </motion.p>
           </div>
         </motion.div>
       )}
