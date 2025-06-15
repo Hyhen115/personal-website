@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconMapPin, IconBriefcase } from '@tabler/icons-react';
+import iconImage from '../../assets/profolio_icon.jpeg'; // Adjust the path as necessary
 
 function Hero() {
   return (
@@ -8,7 +9,7 @@ function Hero() {
         {/* Profile Picture */}
         <div className="w-32 h-32 md:w-40 md:h-40">
           <img 
-            src="src/assets/profolio_icon.jpeg"
+            src={iconImage}
             alt="Henry Wong"
             className="w-full h-full rounded-full border-2 border-gray-100 dark:border-gray-800 shadow-md object-cover"
             onError={(e) => {
