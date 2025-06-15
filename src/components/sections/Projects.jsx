@@ -9,6 +9,8 @@ import mlPipelineImage from "../../assets/projects/ml_pipeline.png";
 import defundsImage from "../../assets/projects/DeFunds.png";
 import deepLearningImage from "../../assets/projects/deepLearningAndImageProcessing.png";
 import examStstemImage from "../../assets/projects/exam_system.png";
+import linuxShellImage from "../../assets/projects/linuxShell.png";
+import AdoptionCenterImage from "../../assets/projects/adoption_center.png";
 
 
 const Projects = () => {
@@ -50,7 +52,7 @@ const Projects = () => {
       title: "Streamlined Linux Shell Queues and Memory",
       description:
         "Simplified Linux Shell, Multi-level Feedback Queue, Memory Management in Linux OS.",
-      image: "https://example.com/social_media.jpg",
+      image: linuxShellImage,
       link: "https://github.com/Hyhen115/Streamlined-Linux-Shell-Queues-and-Memory",
       status: "System",
     },
@@ -85,7 +87,7 @@ const Projects = () => {
       title: "Adoption Center System",
       description:
         "Making a Adoption Center System only using C++, mainly to practice BST with linked list",
-      image: "https://example.com/social_media.jpg",
+      image: AdoptionCenterImage,
       link: "https://github.com/Hyhen115/Adoption-Center-System",
       status: "System",
     },
