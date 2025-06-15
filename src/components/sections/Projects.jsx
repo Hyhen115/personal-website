@@ -3,6 +3,13 @@ import ProjectCard from "../ui/project_card";
 import ProjectTabs from "../ui/project_tabs";
 import { motion, AnimatePresence } from "framer-motion";
 import { s } from "motion/react-client";
+import chessImage from "../../assets/projects/chess.png";
+import weatherImage from "../../assets/projects/WeatherApp.png";
+import mlPipelineImage from "../../assets/projects/ml_pipeline.png";
+import defundsImage from "../../assets/projects/DeFunds.png";
+import deepLearningImage from "../../assets/projects/deepLearningAndImageProcessing.png";
+import examStstemImage from "../../assets/projects/exam_system.png";
+
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -15,8 +22,7 @@ const Projects = () => {
       title: "DeFunds",
       description:
         "A fully decentralized crowdfunding Dapp on ETH. Allow founders to raise vote to extend deadline and raise campaigns in a lower fee. Donators can also have a way to get refund if the campaign is not successful.",
-      image:
-        "https://static.dezeen.com/uploads/2025/05/sq-google-g-logo-update_dezeen_2364_col_0-852x852.jpg",
+      image: defundsImage,
       link: "https://github.com/Hyhen115/DeFunds",
       demoLink: "https://hyhen115.github.io/DeFunds",
       status: "Blockchain",
@@ -26,7 +32,7 @@ const Projects = () => {
       title: "Distributed ML Pipeline",
       description:
         "a complete ML pipeline system on AWS EMR. Allow users to upload datasets, select features, train models using different algorithms, and download the best model through a web interface.",
-      image: "https://example.com/portfolio.jpg",
+      image: mlPipelineImage,
       link: "https://github.com/Hyhen115/ml_pipeline",
       status: "Cloud",
     },
@@ -35,7 +41,7 @@ const Projects = () => {
       title: "Exam System",
       description:
         "An Exam System for students, teachers, admin using Java and Angular, tested with JUnit and Mockito.",
-      image: "https://example.com/social_media.jpg",
+      image: examStstemImage,
       link: "https://github.com/Hyhen115/Exam-system",
       status: "App",
     },
@@ -53,7 +59,7 @@ const Projects = () => {
       title: "Deep Learning and Image Processing",
       description:
         "HandTracking for controlling a robot arm, FaceDetection, Virtual Pen, NumberDetection Model",
-      image: "https://example.com/social_media.jpg",
+      image: deepLearningImage,
       link: "https://github.com/Hyhen115/deepLearningAndImageProcessing",
       status: "AI",
     },
@@ -62,7 +68,7 @@ const Projects = () => {
       title: "Chess",
       description:
         "A chess game that uses C++ to code, mainly focus on practicing C++ OOP",
-      image: "https://example.com/social_media.jpg",
+      image: chessImage,
       link: "https://github.com/Hyhen115/Chess",
       status: "System",
     },
@@ -70,7 +76,7 @@ const Projects = () => {
       id: 7,
       title: "Weather App",
       description: "a weather app using flutter and openWeatherAPI.",
-      image: "https://example.com/portfolio.jpg",
+      image: weatherImage,
       link: "https://github.com/Hyhen115/weather_app",
       status: "App",
     },
