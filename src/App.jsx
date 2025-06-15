@@ -56,7 +56,7 @@ function App() {
       icon: (
         <IconFile className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "/src/assets/resume.pdf",
+      href: "./assets/resume.pdf",
       download: "Henry_Wong_Resume.pdf", // Add this download attribute
     },
   ];

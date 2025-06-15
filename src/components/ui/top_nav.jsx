@@ -95,7 +95,7 @@ const TopNav = ({ logo, menuItems }) => {
               
               {/* Resume Button - Fixed to download from assets/resume.pdf */}
               <a
-                href="/src/assets/resume.pdf" 
+                href="./assets/resume.pdf" 
                 download="Henry_Wong_Resume.pdf"
                 className="ml-2 px-4 py-1.5 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 border border-gray-400 dark:border-gray-600 hover:border-gray-600 dark:hover:border-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
@@ -146,7 +146,7 @@ const TopNav = ({ logo, menuItems }) => {
               
               {/* Resume Button in Mobile Menu - Fixed to download from assets/resume.pdf */}
               <a
-                href="/src/assets/resume.pdf" 
+                href="./assets/resume.pdf" 
                 download="Henry_Wong_Resume.pdf"
                 className="block mx-3 mt-2 px-3 py-2 text-center rounded-md text-base font-medium text-gray-700 dark:text-gray-200 border border-gray-400 dark:border-gray-600 hover:border-gray-600 dark:hover:border-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
