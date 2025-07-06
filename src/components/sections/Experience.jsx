@@ -7,16 +7,26 @@ const Experience = () => {
   const workExperiences = [
     {
       id: 1,
+      title: "IBM STEM Summer Internship",
+      company: "IBM",
+      companyUrl: "https://www.ibm.com/us-en",
+      period: "2025 July - Present",
+      description: "Real World Projects in AI and Hardware.",
+      type: "work",
+      skills: ["AI", "Hardware", "Business Development"]
+    },
+    {
+      id: 2,
       title: "Part-Time AI Developer",
       company: "TRM Limited",
       companyUrl: "https://www.trm.com.hk/",
-      period: "2025 Jun - Present",
+      period: "2025 Jun",
       description: "Developed AI workflows and agents for Generating Insurance CM Statements from Audio Transcripts. And Implememted API for the AI Workflows and sending emails to corresponding clients and insutance staff",
       type: "work",
       skills: ["C# .NET", "Dify"]
     },
     {
-      id: 2,
+      id: 3,
       title: "Full Stack Developer Intern",
       company: "iGears Technology Limited",
       companyUrl: "https://www.igears.com.hk/",
@@ -26,7 +36,7 @@ const Experience = () => {
       skills: ["React Native", "Flutter", "Electron", "Flask", "Node.js", "MongoDB"]
     },
     {
-      id: 3,
+      id: 4,
       title: "INNOX Enterpunership Program",
       company: "INNOX & HKSTP",
       companyUrl: "https://mp.weixin.qq.com/s?__biz=MzI3OTM0MjI3NA==&mid=2247511848&idx=1&sn=f22055c4be3b0dd094140f131b829eff&chksm=eb4bd285dc3c5b93eba0e0c5e06b274760b1f639cdb8c3f7255a8f8dd34765ad970a0c6027fb&token=484125780&lang=zh_CN#rd",
@@ -40,7 +50,7 @@ const Experience = () => {
   // Education experience data
   const educationExperiences = [
     {
-      id: 4,
+      id: 5,
       title: "Bachelor of Engineering in Computer Science",
       company: "HKUST",
       companyUrl: "https://hkust.edu.hk/zh-hant",
@@ -50,7 +60,7 @@ const Experience = () => {
       skills: ["Data Structures", "Algorithms", "Software Engineering"]
     },
     {
-      id: 5,
+      id: 6,
       title: "Associate Degree in Data Science",
       company: "HKCC",
       companyUrl: "https://www.hkcc-polyu.edu.hk/en/home/index.html",
