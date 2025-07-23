@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { IconArrowUpRight, IconExternalLink } from "@tabler/icons-react";
-import StatusBubble from "./status_bubble";
+import StatusBubble from "../common/status_bubble";
 
 const ProjectCard = ({ project }) => {
   const { image, title, description, link, demoLink, status } = project;
