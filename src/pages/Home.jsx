@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import TopNav from "../components/ui/top_nav";
 import Hero from "../components/sections/Hero";
 import Projects from "../components/sections/Projects";
@@ -8,6 +9,7 @@ import Footer from "../components/common/footer";
 import SharedBackground from "../components/ui/background";
 import CustomCursor from "../components/common/custom_cursor";
 import { FloatingDock } from "../components/ui/floating_dock";
+import LoadingEffect from "../components/ui/loading_effect";
 
 import {
   IconBrandGithub,
@@ -41,41 +43,60 @@ const navItems = [
 ];
 
 const menuItems = [
-  { label: "Home", href: "#home" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/personal-website/" },
+  { label: "Forum", href: "/personal-website/forum" },
 ];
 
 export default function Home() {
-  return (
-    <main className="w-full min-h-screen bg-white dark:bg-black overflow-x-hidden m-0 p-0">
-      <CustomCursor />
-      <SharedBackground />
-      <TopNav menuItems={menuItems} />
+  const [isLoading, setIsLoading] = useState(() => {
+    // Only show loading if not loaded before
+    return !localStorage.getItem("hasLoadedOnce");
+  });
 
-      <section id="home" className="snap-section w-full min-h-screen flex flex-col items-center justify-center p-4 relative z-10">
-        <div className="w-full max-w-3xl mx-auto">
-          <Hero />
-        </div>
-      </section>
-      <section id="experience" className="snap-section w-full min-h-screen py-16 flex items-center relative z-10">
-        <Experience />
-      </section>
-      <section id="projects" className="snap-section w-full min-h-screen py-16 flex items-center relative z-10">
-        <Projects />
-      </section>
-      <section id="skills" className="snap-section w-full min-h-screen py-16 flex items-center relative z-10">
-        <Skills />
-      </section>
-      <section id="contact" className="snap-section w-full min-h-screen py-16 flex flex-col justify-center relative z-10">
-        <Contact />
-        <Footer />
-      </section>
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-        <FloatingDock items={navItems} />
-      </div>
-    </main>
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    localStorage.setItem("hasLoadedOnce", "true");
+  };
+
+  useEffect(() => {
+    // If user navigates back to Home, don't show loading again
+    if (localStorage.getItem("hasLoadedOnce")) {
+      setIsLoading(false);
+    }
+  }, []);
+
+  return (
+    <>
+      {isLoading && <LoadingEffect onLoadingComplete={handleLoadingComplete} />}
+      {!isLoading && (
+        <main className="w-full min-h-screen bg-white dark:bg-black overflow-x-hidden m-0 p-0">
+          <CustomCursor />
+          <SharedBackground />
+          <TopNav menuItems={menuItems} />
+
+          <section id="home" className="snap-section w-full min-h-screen flex flex-col items-center justify-center p-4 relative z-10">
+            <div className="w-full max-w-3xl mx-auto">
+              <Hero />
+            </div>
+          </section>
+          <section id="experience" className="snap-section w-full min-h-screen py-16 flex items-center relative z-10">
+            <Experience />
+          </section>
+          <section id="projects" className="snap-section w-full min-h-screen py-16 flex items-center relative z-10">
+            <Projects />
+          </section>
+          <section id="skills" className="snap-section w-full min-h-screen py-16 flex items-center relative z-10">
+            <Skills />
+          </section>
+          <section id="contact" className="snap-section w-full min-h-screen py-16 flex flex-col justify-center relative z-10">
+            <Contact />
+            <Footer />
+          </section>
+          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+            <FloatingDock items={navItems} />
+          </div>
+        </main>
+      )}
+    </>
   );
 }

@@ -86,7 +86,6 @@ const TopNav = ({ logo, menuItems }) => {
                 <a
                   key={index}
                   href={item.href}
-                  onClick={(e) => handleSmoothScroll(e, item.href)}
                   className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   {item.label}
