@@ -43,8 +43,8 @@ const navItems = [
 ];
 
 const menuItems = [
-  { label: "Home", href: "/personal-website/" },
-  { label: "Forum", href: "/personal-website/forum" },
+  { label: "Home", href: "#/" },
+  { label: "Forum", href: "#/forum" },
 ];
 
 export default function Home() {
