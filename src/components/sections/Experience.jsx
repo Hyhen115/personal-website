@@ -11,9 +11,9 @@ const Experience = () => {
       company: "IBM",
       companyUrl: "https://www.ibm.com/us-en",
       period: "2025 July - Present",
-      description: "",
+      description: "Implemented a RAG Chatbot for POC and Internal Uses",
       type: "work",
-      skills: []
+      skills: ["Langchain", "FastAPI", "Postage SQL", "Chroma DB", "Llama.cpp", "Podman", "Openshift", "IBM Power"]
     },
     {
       id: 2,
