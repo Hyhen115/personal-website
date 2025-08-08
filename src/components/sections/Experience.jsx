@@ -11,7 +11,7 @@ const Experience = () => {
       company: "IBM",
       companyUrl: "https://www.ibm.com/us-en",
       period: "2025 July - Present",
-      description: "Implemented a RAG Chatbot for POC and Internal Uses",
+      description: "Implemented a containerized RAG Chatbot webapp using Langchain, FastAPI, ChromaDB and Postage SQL with Local Compilation Llama.cpp model deployed on IBM Power with RHEL using Openshift for POC and Internal Uses",
       type: "work",
       skills: ["Langchain", "FastAPI", "Postage SQL", "Chroma DB", "Llama.cpp", "Podman", "Openshift", "IBM Power"]
     },
