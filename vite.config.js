@@ -9,5 +9,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '', // Match your repository name
+  base: '/', // Match your repository name
 })
