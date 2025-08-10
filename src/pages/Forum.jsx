@@ -4,8 +4,8 @@ import SharedBackground from "../components/ui/background";
 import CustomCursor from "../components/common/custom_cursor";
 
 const menuItems = [
-  { label: "Home", href: "#/" },
-  { label: "Forum", href: "#/forum" },
+  { label: "Home", href: "/" },
+  { label: "Forum", href: "/forum" },
 ];
 
 export default function Forum() {
